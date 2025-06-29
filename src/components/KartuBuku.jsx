@@ -1,6 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+/**
+ * Komponen KartuBuku
+ *
+ * Komponen ini menampilkan tampilan satu buku dalam bentuk kartu.
+ * Digunakan pada halaman beranda untuk memvisualisasikan koleksi buku pengguna.
+ * Menyertakan gambar sampul, judul, detail buku, genre, dan tombol aksi saat editMode aktif.
+ *
+ * Props:
+ * - book: Object buku (judul, pengarang, tahunTerbit, gambar, genre, id)
+ * - onEdit: Fungsi yang dipanggil saat tombol edit diklik
+ * - onDelete: Fungsi yang dipanggil saat tombol hapus diklik
+ * - editMode: Boolean untuk menentukan apakah tombol aksi ditampilkan
+ */
 
+import React from "react";
 const KartuBuku = ({ book, onEdit, onDelete, editMode }) => {
   return (
     <div className="w-full bg-white rounded-2xl shadow-md p-3 flex flex-col items-center text-center hover:shadow-lg transition duration-200">
@@ -23,13 +35,9 @@ const KartuBuku = ({ book, onEdit, onDelete, editMode }) => {
         <p>📅 {book.tahunTerbit}</p>
       </div>
 
-      {/* Genre sebagai link */}
-      <Link
-        to={`/genre/${book.genre.toLowerCase().replace(/\s+/g, "-")}`}
-        className="text-xs font-medium text-[#903749] hover:underline mb-1"
-      >
+      <span className="text-[10px] font-medium px-2 py-0.5 bg-[#903749]/10 text-[#903749] rounded-full mt-1">
         {book.genre}
-      </Link>
+      </span>
 
       {/* Tombol edit & hapus */}
       {editMode && (

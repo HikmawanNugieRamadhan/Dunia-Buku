@@ -1,26 +1,25 @@
+/**
+ * Komponen EditBuku
+ *
+ * Halaman untuk mengedit data buku yang telah ditambahkan sebelumnya.
+ * Menggunakan komponen `FormBuku` dengan data awal (`initialData`) dari buku yang dipilih.
+ *
+ * Props:
+ * - bookToEdit: Objek buku yang akan diedit (berisi id, judul, pengarang, tahunTerbit, genre, gambar)
+ * - onEdit: Fungsi untuk memperbarui data buku di state utama aplikasi
+ *
+ * Fitur:
+ * - Menampilkan form dengan data awal dari buku
+ * - Setelah diedit, data dikirimkan ke `onEdit`
+ * - Otomatis kembali ke halaman utama setelah pengeditan selesai
+ */
+
 import React from "react";
 import FormBuku from "../components/FormBuku";
 import { useNavigate } from "react-router-dom";
 
 const EditBuku = ({ bookToEdit, onEdit }) => {
   const navigate = useNavigate();
-
-  // Jika belum ada data buku yang akan diedit, redirect ke beranda
-  if (!bookToEdit) {
-    return (
-      <div className="text-center mt-20">
-        <h2 className="text-xl text-red-600 font-semibold">
-          Buku tidak ditemukan atau belum dipilih untuk diedit.
-        </h2>
-        <button
-          className="mt-4 px-4 py-2 bg-[#E84545] text-white rounded-md shadow"
-          onClick={() => navigate("/")}
-        >
-          Kembali ke Beranda
-        </button>
-      </div>
-    );
-  }
 
   const handleSubmit = (updatedData) => {
     const updatedBook = {

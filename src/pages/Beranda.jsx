@@ -1,3 +1,23 @@
+/**
+ * Komponen Beranda
+ *
+ * Halaman utama aplikasi DuniaBuku. Menampilkan sambutan, fitur pencarian,
+ * filter, sortir, serta daftar koleksi buku milik pengguna.
+ * Juga menyediakan tombol "Tambah Buku" melayang dan mode edit untuk mengelola buku.
+ *
+ * Props:
+ * - books: Array daftar buku (masing-masing memiliki properti judul, pengarang, genre, tahunTerbit, dll)
+ * - onDelete: Fungsi yang dipanggil saat buku dihapus
+ * - onEditClick: Fungsi yang dipanggil saat tombol edit pada buku diklik
+ *
+ * Fitur:
+ * - Hero Section: Menyambut pengguna di halaman utama
+ * - Control Panel: Input pencarian, filter genre, dan sortir buku
+ * - Daftar Buku: Menampilkan semua buku yang cocok berdasarkan pencarian/filter/sortir
+ * - Mode Edit: Menampilkan tombol edit dan hapus
+ * - Floating Action Button (FAB): Untuk menambah buku secara cepat
+ */
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import KartuBuku from "../components/KartuBuku";

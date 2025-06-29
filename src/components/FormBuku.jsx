@@ -1,3 +1,20 @@
+/**
+ * Komponen FormBuku
+ * 
+ * Form ini digunakan untuk menambahkan atau mengedit data buku.
+ * Dapat digunakan dalam mode "add" (tambah) atau "edit" berdasarkan props `mode`.
+ *
+ * Props:
+ * - mode: string ("add" | "edit") - menentukan apakah form ini untuk menambah atau mengedit buku
+ * - initialData: objek data buku yang akan diisi ke form (digunakan saat edit)
+ * - onSubmit: fungsi callback yang dipanggil saat form disubmit dengan data valid
+ * 
+ * Validasi sederhana:
+ * - Semua field wajib diisi
+ * - `tahunTerbit` hanya boleh angka
+ * - Judul dan pengarang tidak boleh mengandung simbol khusus
+ */
+
 import React, { useState, useEffect } from "react";
 import { genres } from "../data/genres";
 
@@ -68,7 +85,7 @@ const FormBuku = ({ mode = "add", initialData = {}, onSubmit }) => {
           value={formData.judul}
           onChange={handleChange}
           className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2B2E4A]"
-          placeholder="Contoh: Laskar Pelangi"
+          placeholder="Contoh : Let Down"
         />
       </div>
 
@@ -81,7 +98,7 @@ const FormBuku = ({ mode = "add", initialData = {}, onSubmit }) => {
           value={formData.pengarang}
           onChange={handleChange}
           className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2B2E4A]"
-          placeholder="Contoh: Andrea Hirata"
+          placeholder="Contoh : Nugie Ramadhan"
         />
       </div>
 

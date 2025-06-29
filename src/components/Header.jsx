@@ -1,3 +1,14 @@
+/**
+ * Komponen Header
+ * 
+ * Menampilkan header global aplikasi DuniaBuku yang berisi:
+ * - Logo dan nama aplikasi
+ * - Navigasi ke halaman Beranda dan Tambah Buku
+ * 
+ * Navigasi akan menyoroti halaman aktif berdasarkan `location.pathname`.
+ * Desain responsif dengan penyesuaian ukuran padding dan font untuk mode mobile dan desktop.
+ */
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
