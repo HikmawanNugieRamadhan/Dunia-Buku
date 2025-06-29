@@ -72,13 +72,20 @@ const Beranda = ({ books, onDelete, onEditClick }) => {
 
       {/* Control Panel */}
       <section className="bg-white shadow-sm rounded-xl p-4 mb-10 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <input
-          type="text"
-          placeholder="Cari judul atau pengarang..."
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className="relative w-full md:flex-1">
+          <img
+            src="/assets/logos/search.svg"
+            alt="Search Icon"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+          />
+          <input
+            type="text"
+            placeholder="Cari judul atau pengarang..."
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#E84545]/30"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
         <div className="flex gap-2 flex-wrap justify-between md:justify-end">
           <select
@@ -105,7 +112,7 @@ const Beranda = ({ books, onDelete, onEditClick }) => {
           </select>
           <button
             onClick={() => setEditMode((prev) => !prev)}
-            className="px-4 py-2 bg-[#2B2E4A] hover:bg-[#1f2037] text-white rounded-lg"
+            className="px-4 py-2 bg-[#E84545] hover:bg-[#d63c3c] text-white rounded-lg"
           >
             {editMode ? "Selesai Edit" : "Edit Mode"}
           </button>

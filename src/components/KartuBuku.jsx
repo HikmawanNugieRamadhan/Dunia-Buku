@@ -30,10 +30,17 @@ const KartuBuku = ({ book, onEdit, onDelete, editMode }) => {
       </h2>
 
       {/* Detail */}
-      <div className="text-[11px] text-[#53354A] space-y-0.5">
-        <p>👤 {book.pengarang}</p>
-        <p>📅 {book.tahunTerbit}</p>
+      <div className="text-[11px] text-[#53354A] space-y-0.5 w-full">
+        <div className="flex items-center gap-1 justify-center">
+          <img src="/assets/logos/penulis.svg" alt="Pengarang" className="w-4 h-4" />
+          <p>{book.pengarang}</p>
+        </div>
+        <div className="flex items-center gap-1 justify-center">
+          <img src="/assets/logos/tahun.svg" alt="Tahun Terbit" className="w-4 h-4" />
+          <p>{book.tahunTerbit}</p>
+        </div>
       </div>
+
 
       <span className="text-[10px] font-medium px-2 py-0.5 bg-[#903749]/10 text-[#903749] rounded-full mt-1">
         {book.genre}
