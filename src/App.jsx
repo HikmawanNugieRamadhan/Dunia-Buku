@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import { books as initialBooks } from "./data/books";
 
 function App() {
+  //todo: taruh semua state dan handle crud di masing masing component
   const [books, setBooks] = useState(initialBooks);
   const [bookToEdit, setBookToEdit] = useState(null);
 
@@ -38,9 +39,9 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-100 p-4">
         <Header />
-
         <Routes>
           {/* Gabungan Beranda + Koleksi Buku */}
+          {/* Buat array object untuk setiap routes, lalu panggil route dalam array */}
           <Route
             path="/"
             element={
