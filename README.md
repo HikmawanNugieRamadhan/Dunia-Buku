@@ -1,56 +1,73 @@
-# 📚 DuniaBuku
+# Getting Started with Create React App
 
-**DuniaBuku** adalah aplikasi perpustakaan digital sederhana berbasis React.js yang memungkinkan pengguna untuk menambah, mengedit, menghapus, dan mengelola koleksi buku pribadi secara intuitif. Desain modern dan responsif membuat aplikasi ini nyaman digunakan di berbagai perangkat.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
----
+## Available Scripts
 
-## ✨ Fitur Utama
+In the project directory, you can run:
 
-- ✅ Menambahkan buku lengkap dengan gambar, judul, pengarang, tahun, dan genre
-- ✅ Mengedit dan menghapus buku yang sudah ada
-- ✅ ID buku otomatis (misal: BK001, BK002)
-- ✅ Pencarian buku berdasarkan judul atau pengarang
-- ✅ Filter buku berdasarkan genre
-- ✅ Sortir buku berdasarkan judul atau tahun terbit
-- ✅ Mode Edit Toggle (untuk menghapus atau mengedit buku)
-- ✅ Tampilan responsif (desktop, tablet, dan mobile)
-- ✅ Feedback visual (notifikasi ketika buku berhasil ditambah/edit/hapus)
-- ✅ Navigasi sederhana antar halaman menggunakan React Router
-- ✅ Tampilan modern dengan Tailwind CSS dan palet warna custom
-- ✅ Floating Button untuk menambah buku
+### `npm start`
 
----
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## 🛠️ Teknologi yang Digunakan
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- ⚛️ React.js
-- 🎨 Tailwind CSS v3.4.17
-- 🔀 React Router DOM
-- 📦 Vite (atau Create React App, tergantung inisiasi awal)
-- 🖼️ Asset lokal (SVG logo, ikon, gambar sampul)
+### `npm test`
 
----
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## 📁 Struktur Folder
-src/
-│
-├── assets/ # Logo dan ikon SVG
-├── components/ # Komponen UI (FormBuku, KartuBuku, Header, dll)
-├── pages/ # Halaman utama (Beranda, TambahBuku, EditBuku)
-├── utils/ # Fungsi utilitas seperti generateId
-└── App.jsx # Routing dan state utama
+### `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
----
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## 🚀 Cara Menjalankan
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-1. **Clone repo:**
-git clone https://github.com/username/duniabuku.git
+### `npm run eject`
 
-2. **Open Folder di Code Editor**
-Klik Terminal > New Terminal
-cd dunia-buku
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-3. **Jalankan Project**
-npm start
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Dunia Buku
+Task Day 9 - Internship at PT. Tata Sarana Mandiri

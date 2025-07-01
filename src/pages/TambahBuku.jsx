@@ -12,23 +12,25 @@
  * - Menggunakan `generateId` untuk membuat ID buku otomatis (format: BK001, BK002, dst.)
  * - Setelah berhasil menambahkan buku, langsung diarahkan ke halaman beranda
  */
-
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Tambah ini
-import FormBuku from "../components/FormBuku";
+import { useNavigate } from "react-router-dom";
+import { getBooks, saveBooks } from "../utils/localStorage";
 import { generateId } from "../utils/generateId";
+import FormBuku from "../components/FormBuku";
 
-const TambahBuku = ({ onAdd, totalBooks }) => {
-  const navigate = useNavigate(); // Inisialisasi
+const TambahBuku = () => {
+  const navigate = useNavigate();
 
   const handleSubmit = (data) => {
+    const books = getBooks(); // Ambil data dari localStorage
     const newBook = {
       ...data,
-      id: generateId(totalBooks),
+      id: generateId(books.length), //pakai generateId(lastIndex)
     };
-    onAdd(newBook);
 
-    // Setelah tambah, pindah ke halaman utama
+    const updatedBooks = [...books, newBook];
+    saveBooks(updatedBooks); // Simpan ke localStorage
+    alert("Buku berhasil ditambahkan!");
     navigate("/");
   };
 

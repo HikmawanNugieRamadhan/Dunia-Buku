@@ -18,20 +18,40 @@
  * - Floating Action Button (FAB): Untuk menambah buku secara cepat
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import KartuBuku from "../components/KartuBuku";
+import { getBooks, saveBooks } from "../utils/localStorage"; // gunakan localStorage
 
-const Beranda = ({ books, onDelete, onEditClick }) => {
+const Beranda = () => {
   const navigate = useNavigate();
+  const [books, setBooks] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [search, setSearch] = useState("");
   const [filterGenre, setFilterGenre] = useState("Semua");
   const [sortBy, setSortBy] = useState("judulAsc");
 
+  // Ambil data buku dari localStorage saat komponen pertama kali dimuat
+  useEffect(() => {
+    const storedBooks = getBooks();
+    setBooks(storedBooks);
+  }, []);
+
   const handleEdit = (id) => {
-    onEditClick(id);
-    navigate("/edit");
+    const book = books.find((b) => b.id === id);
+    if (book) {
+      navigate(`/edit/${id}`, { state: book });
+    }
+  };
+
+  const handleDelete = (id) => {
+    const confirmed = window.confirm("Apakah yakin ingin menghapus buku ini?");
+    if (!confirmed) return;
+
+    const filtered = books.filter((book) => book.id !== id);
+    setBooks(filtered);
+    saveBooks(filtered);         // Simpan perubahan ke localStorage
+    alert("Buku berhasil dihapus!");
   };
 
   const filteredBooks = books
@@ -147,7 +167,7 @@ const Beranda = ({ books, onDelete, onEditClick }) => {
                   key={book.id}
                   book={book}
                   onEdit={handleEdit}
-                  onDelete={onDelete}
+                  onDelete={handleDelete}
                   editMode={editMode}
                 />
               ))}
@@ -156,7 +176,7 @@ const Beranda = ({ books, onDelete, onEditClick }) => {
         )}
       </section>
 
-      {/* Tambah Buku Mengambang */}
+      {/* Tombol Tambah Mengambang */}
       <button
         onClick={() => navigate("/tambah")}
         className="fixed bottom-6 right-6 bg-[#E84545] hover:bg-[#d63c3c] text-white px-5 py-3 rounded-full shadow-lg z-50"

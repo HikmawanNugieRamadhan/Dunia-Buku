@@ -4,30 +4,48 @@
  * Halaman untuk mengedit data buku yang telah ditambahkan sebelumnya.
  * Menggunakan komponen `FormBuku` dengan data awal (`initialData`) dari buku yang dipilih.
  *
- * Props:
- * - bookToEdit: Objek buku yang akan diedit (berisi id, judul, pengarang, tahunTerbit, genre, gambar)
- * - onEdit: Fungsi untuk memperbarui data buku di state utama aplikasi
- *
  * Fitur:
  * - Menampilkan form dengan data awal dari buku
- * - Setelah diedit, data dikirimkan ke `onEdit`
+ * - Setelah diedit, data dikirim dan disimpan ke localStorage
  * - Otomatis kembali ke halaman utama setelah pengeditan selesai
  */
 
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import FormBuku from "../components/FormBuku";
-import { useNavigate } from "react-router-dom";
+import { getBooks, saveBooks } from "../utils/localStorage";
 
-const EditBuku = ({ bookToEdit, onEdit }) => {
+const EditBuku = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const bookToEdit = location.state;
+
+  // Jika data tidak dikirim dari navigasi, tampilkan pesan error
+  if (!bookToEdit) {
+    return (
+      <div className="text-center mt-10">
+        <h2 className="text-lg text-red-600 font-semibold">
+          Buku tidak ditemukan atau data kosong.
+        </h2>
+      </div>
+    );
+  }
 
   const handleSubmit = (updatedData) => {
+    const books = getBooks();
+
     const updatedBook = {
       ...updatedData,
-      id: bookToEdit.id, // jaga ID tetap sama
+      id: bookToEdit.id, // Tetap pakai ID lama
     };
-    onEdit(updatedBook);
-    navigate("/"); // Setelah edit, kembali ke beranda
+
+    const updatedBooks = books.map((book) =>
+      book.id === updatedBook.id ? updatedBook : book
+    );
+
+    saveBooks(updatedBooks);
+    alert("Buku berhasil diperbarui!");
+    navigate("/");
   };
 
   return (
