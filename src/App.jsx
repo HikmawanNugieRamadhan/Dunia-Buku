@@ -17,6 +17,7 @@ function App() {
       <div className="min-h-screen bg-gray-100 p-4">
         <Header />
         <Routes>
+          {/* Ganti Route dibawah dengan perulangan dari routes.tsx */}
           <Route path="/" element={<Beranda />} />
           <Route path="/tambah" element={<TambahBuku />} />
           <Route path="/edit/:id" element={<EditBuku />} />
